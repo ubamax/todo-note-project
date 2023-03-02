@@ -1,9 +1,7 @@
-# Build a Note Taking App with Solidity
-
 ---
 title: Build a note taking app with solidity
 description: Build a CRUD application on the Celo blockchain with Solidity
-authors:
+author:
 - name: Peter Ayuba
   title: Software Developer, 
   url: https://github.com/ubamax
@@ -12,6 +10,8 @@ tags: [solidity, react, celo, todolist, beginner]
 hide_table_of_contents: true
 slug: /build-a-note-taking-app-with-solidity
 ---
+# Build a Note Taking App with Solidity
+
 _Estimated reading time: **18 minutes**_
 
 ## Table of contents
