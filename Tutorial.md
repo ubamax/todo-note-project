@@ -30,18 +30,18 @@ _Estimated reading time: **18 minutes**_
 - [References](#references)
 
 ## Introduction 
-This tutorial was designed for developers who are new to the space and want to learn the basics of building decentralised applications using Solidity. if you are looking for more complex designs, I recommend you go to the Solidity documentation to learn more about the language.
+This tutorial was designed for developers who are new to the space and want to learn the basics of building decentralized applications using Solidity. if you are looking for more complex designs, I recommend you go to the Solidity documentation to learn more about the language.
 
-A note taking application is an application that takes in notes from the user and stores the notes for further reference or as reminders to carry out a partucular task. A Note Taking application is the perfect example of application every begineer needs to build so as to understand how to carry out CRUD (Create, Retrieve, Update, Delete) operations on that language. 
+A note taking application is an application that takes in notes from the user and stores the notes for further reference or as reminders to carry out a particular task. A Note Taking application is the perfect example of an application every beginner needs to build to understand how to carry out CRUD (Create, Retrieve, Update, Delete) operations in that language. 
 
-We will be building a simple note taking applicaition that also has the abilities of a todo-list application. This application will let the users enter the title and content they want to take note of. After saving a note, users can either mark a note as completed or delete a note. All these functionalities are implemented using the most popular smart contract programming language, Solidity. We will also deploy the contract to the Celo blockchain at the end of the day. We will also build a user interface that you can use to interact with the application using React (also the most popular JavaScript frontend framework.)
+We will be building a simple note taking application that also has the abilities of a todo-list application. This application will let the users enter the title and content they want to take note of. After saving a note, users can either mark a note as completed or delete a note. All these functionalities are implemented using the most popular smart contract programming language, Solidity. We will also deploy the contract to the Celo blockchain at the end of the day. We will also build a user interface that you can use to interact with the application using React (also the most popular JavaScript frontend framework.)
 
 ## What we are building
 
 Our Note Taking app with have the following functionalities:
 - Let users sign in to the app using the Celo Extension Wallet
-- Let users create a note or reminder containing an title, content, and the time the note was last modified
-- Let users delete note from the list of already created notes
+- Let users create a note or reminder containing a title, content, and the time the note was last modified
+- Let users delete a note from the list of already created notes
 - Let users mark a note as completed
 
 Look at a final view of how our app will look like:
@@ -49,11 +49,12 @@ Look at a final view of how our app will look like:
 ![app_shot](https://user-images.githubusercontent.com/110759344/222239672-b86a07be-3c7d-4eb7-80c7-689799218fea.PNG)
 
 ## Set up your environment
-To follow this tutorial ensure you have the following tools ready:
+
+### Requirements
 - [NodeJs](https://nodejs.org). A Javascript run time environment. Head on to https://nodejs.org to download if you don't already have
 - [NPM](https://npmjs.com). Node Package Manager. It's required to install React and other node packages
 - [Git](https://git-scm.com/doc). A version control system. Git is not the same as GitHub. Take note!
-- Command line interface. Bash, Powershell, zsh, etc anyone will go with this thtorial
+- Command line interface. Bash, Powershell, zsh, etc anyone will go with this tutorial
 - Code editor. VSCode is what I recommend
 - Web browser. Chrome or Brave or Firefox
 - [Celo Extension Wallet](https://chrome.google.com/webstore/detail/celoextensionwallet/kkilomkmpmkbdnfelcpgckmpcaemjcdh?hl=en). Install it in your browser.
@@ -72,7 +73,7 @@ Navigate into the repository/folder you just cloned and run the command from you
 ```bash
 npm install
 ```
-The above command will install all the packages listed in `package.json `file inside a new folder called `node_modules`.
+The above command will install all the packages listed in `package.json` file inside a new folder called `node_modules`.
 
 After the previous command is done running, run the next command to open the app live in your browser:
 
@@ -82,7 +83,7 @@ npm start
 The above command will start a development server in your computer mostly running on "http://localhost:3000".
 
 ## App Breakdown
-Let us break down some important part of the app that might seem complex to you.
+Let us break down some important parts of the app that might seem complex to you.
 
 ### `package.json`
 
@@ -129,9 +130,9 @@ Let us break down some important part of the app that might seem complex to you.
 ```
 This file contains all the packages that are needed for our note app to function properly. A few important packages to highlight are listed below.
 
-- `@celo/contractkit` - This is a library that help developers and validators to interact with the Celo blockchain and is well suited to developers looking for an easy way to integrate Celo Smart Contracts within their applications. It includes common functionality to make it easier to get started building dapps on Celo.
+- `@celo/contractkit` - This is a library that helps developers and validators to interact with the Celo blockchain and is well suited to developers looking for an easy way to integrate Celo Smart Contracts within their applications. It includes common functionality to make it easier to get started building dapps on Celo.
 - `bignumber.js` - A JavaScript library for arbitrary-precision arithmetic.
-- `sass` - A NodeJS implementation of the SASS engine. SASS (Syntactically Awasome Style Sheet) is a CSS extension that allows writing CSS more faster and easier.
+- `sass` - A NodeJS implementation of the SASS engine. SASS (Syntactically Awesome Style Sheet) is a CSS extension that allows writing CSS faster and easier.
 - `web3` - A Javascript library for interacting with the Ethereum blockchain. It can also be used to interact with the Celo blockchain as well.
 
 ### `src/contracts/Todo.sol`
@@ -163,8 +164,8 @@ contract Todo {
 
     /// @notice Add a new note to contract
     /// @param _title Title of new note to add
-    /// @param _note Note content of new note to add
-    /// @param _tag Category of new note
+    /// @param _note Note content of the new note to add
+    /// @param _tag Category of the new note
     function addNote(
         string calldata _title, 
         string calldata _note, 
@@ -181,7 +182,7 @@ contract Todo {
 
     /// @notice Set the `completed` property of a note to true
     /// @param _noteId ID of note to update
-    /// @return True if note was updated, False otherwise
+    /// @return True if the note was updated, False otherwise
     function setCompleted(uint256 _noteId) external returns (bool) {
         Note[] storage privateNotes = notes[msg.sender];
         for (uint i = 0; i < privateNotes.length; i++) {
@@ -225,11 +226,11 @@ contract Todo {
 }
 ```
 
-This file starts with a license identifier (`UNLICENSE`). This means that our source code is free and it is not guided by any license. It is 100% free to use. Check out https://spdx.org/licenses/ to learn more about other licenses available to use in your Solidity code.
+This file starts with a license identifier (`UNLICENSE`). This means that our source code is free and is not guided by any license. It is 100% free to use. Check out https://spdx.org/licenses/ to learn more about other licenses available to use in your Solidity code.
 
-We also specified the Solidity compiler version to use for compiling the code. We will be using `>=0.8.0`, meaining that our code will compile on any compiler version greater than _0.8.0_ and less than _0.9.0_. 
+We also specified the Solidity compiler version to use for compiling the code. We will be using `>=0.8.0`, meaning that our code will compile on any compiler version greater than _0.8.0_ and less than _0.9.0_. 
 
-The next line, we created a contract and name it Todo. Inside this contract is where we will define all the functionalities of our dapp as well as state variables.
+In the next line, we created a contract and name it Todo. Inside this contract is where we will define all the functionalities of our dapp as well as state variables.
 
 ```solidity
     event CreateNote(address indexed author, uint256 noteId);
@@ -249,20 +250,20 @@ The next line, we created a contract and name it Todo. Inside this contract is w
     uint256 idController;
 ```
 
-First thing we did inside the body of our contract is to define tha state variables. Variables created outsdie of functions but inside body of the contract are called _state variables_. State variables stores data persistantly on the blockchain and it costs more gas to store them.
+The first thing we did inside the body of our contract is to define the state variables. Variables created outside of functions but inside the body of the contract are called _state variables_. State variables store data persistently on the blockchain and it costs more gas to store them.
 
-The next code inside the body contains events that we will emit in the later part of the code. We created three events: `CreateNote`, `UpdateNote`, and `DeleteNote`. `CreateNote` event is emitted when a new note is created and and added to the blockchain. `UpdateNote` is emitted when a note is updated. `DeleteNote` is emitted when we delete a not from the blockchain. Go to https://solidity-by-example.org/events/ to learn more about events in solidity.
+The next code inside the body contains events that we will emit in the later part of the code. We created three events: `CreateNote`, `UpdateNote`, and `DeleteNote`. The `CreateNote` event is emitted when a new note is created and added to the blockchain. `UpdateNote` is emitted when a note is updated. `DeleteNote` is emitted when we delete a not from the blockchain. Go to https://solidity-by-example.org/events/ to learn more about events in solidity.
 
-The next line, we added a struct. A struct is useful for grouping related data together. Suppose you want to associate some data to a particular variable, e.g associate class, age, grade, to a particular student. Struct will the best data type to use. Go to https://solidity-by-example.org/structs/ to learn more abut structs. The Notes struct we created has some properties about each note such as `noteId`, `lastModified`, `title`, `note`, `completed`, `tag`.
+In the next line, we added a struct. A struct is useful for grouping related data together. Suppose you want to associate some data to a particular variable, e.g associate class, age, or grade, to a particular student. Struct will be the best data type to use. Go to https://solidity-by-example.org/structs/ to learn more about structs. The Notes struct we created has some properties about each note such as `noteId`, `lastModified`, `title`, `note`, `completed`, and `tag`.
 
-The second to last line, we created a mapping that maps address to an array of notes. The address is the wallet address of each user, and the array of notes contains all notes the user have created so far. The mapping is stored in a variable called `notes`.
+In the second to last line, we created a mapping that maps the address to an array of notes. The address is the wallet address of each user, and the array of notes contains all notes the user has created so far. The mapping is stored in a variable called `notes`.
 
-The last line, we created a variable that will assign unique id to each note created so the notes can be queried correctly and gas effiently. We called this variable `idController`.
+In the last line, we created a variable that will assign a unique id to each note created so the notes can be queried correctly and gas efficiently. We called this variable `idController`.
 
-After creating the state variabies of our contract, the next thing to do is to create the functions. The first function to create is the function as seen below:
+After creating the state variables of our contract, the next thing to do is to create the functions. The first function to create is the function as seen below:
 
 ```solidity
-    // add new note
+    // add a new note
     function addNote(
         string calldata _title, 
         string calldata _note, 
@@ -274,16 +275,16 @@ After creating the state variabies of our contract, the next thing to do is to c
         emit CreateNote(msg.sender, idController);
     }
 ```
-The function takes in three arguments - `_title`, `_note`, and `_tag`. `_title` is the title that will be used to save a note. `_note` is the content of a note. The body containing our note message. `_tag` is the category a note belongs to. This is useful in sorting our notes when they are too large to keep track of. We used `external` to define the function because we want it to be called from outside the contract.
+The `addNote` function takes in three arguments - `_title`, `_note`, and `_tag`. `_title` is the title that will be used to save a note. `_note` is the content of a note. The body contains our note message. `_tag` is the category a note belongs to. This is useful in sorting our notes when they are too large to keep track of. We used `external` to define the function because we want it to be called from outside the contract.
 
 Inside the body of the function, we created a new note data stored inside `newNote`. We are using a _memory_ location here because we don't want the note to persist in the blockchain storage. 
 
-The next line we add the newly created note insde the notes variable, in the callers' address space. We then incremented the `idController` by one. Note that the main purpose of `idController` is to control IDs assigned to posts and not to count how many posts created so far, because it will not give the correct value when a post is deleted. Lastly, we emitted the createNote event passing in the caller's wallet address and the ID assigned to the note.
+In the next line, we add the newly created note inside the notes variable, in the callers' address space. We then incremented the `idController` by one. Note that the main purpose of `idController` is to control IDs assigned to posts and not to count how many posts created so far, because it will not give the correct value when a post is deleted. Lastly, we emitted the createNote event passing in the caller's wallet address and the ID assigned to the note.
 
 The next function is the `setCompleted(uint256, _noteId)` function.
 
 ```solidity
-    // set a note to completed
+    // set a note to complete
     function setCompleted(uint256 _noteId) external returns (bool) {
         Note[] storage privateNotes = notes[msg.sender];
         for (uint i = 0; i < privateNotes.length; i++) {
@@ -295,11 +296,10 @@ The next function is the `setCompleted(uint256, _noteId)` function.
                 return true;
             }
         }
-
         return false;
     }
 ```
-This function accepts the unique ID of a note and set the completed value ofthe note to true and then returns true or false depending on whether the operation was successful. The function first copies all notes belonging to function caller and stores them in a variable called `privatesNotes` in memory location. It then loops through all the notes searching for the note which ID belongs to `_noteId`. When it locates this note, it set's it completed value to true, updated the global note with this new note, and then emit the `UpdateNote` event. The function returns true if it updated the note successfully and false if it did not.
+This function accepts the unique ID of a note and set the completed value of the note to true and then returns true or false depending on whether the operation was successful. The function first copies all notes belonging to the function caller and stores them in a variable called `privatesNotes` in a memory location. It then loops through all the notes searching for the note whose ID belongs to `_noteId`. When it locates this note, it sets its completed value to true, updated the global note with this new note, and then emits the `UpdateNote` event. The function returns true if it updated the note successfully and false if it did not.
 
 The next function is `deleteNote(uint256 _noteId)`:
 
@@ -320,30 +320,27 @@ The next function is `deleteNote(uint256 _noteId)`:
         return false;
     }
 ```
-`deleteNote()` function also accepts the note ID it want's to delete and returns true if the note was deleted, and false otherwise. Similar to `setCompleted()` function , `deleteNote()` function copies caller notes to memory variable called `privateNotes`. It then loops through the note to search for the note with ID of `_noteId`. When the note is found from the array of notes, it replaces the note with the last note in the note array, and then removes the last element from the array using
+`deleteNote()` function also accepts the note ID it wants to delete and returns true if the note was deleted, and false otherwise. Similar to `setCompleted()` function, `deleteNote()` function copies caller notes to a memory variable called `privateNotes`. It then loops through the note to search for the note with ID of `_noteId`. When the note is found from the array of notes, it replaces the note with the last note in the note array and then removes the last element from the array using
+`privateNotes.pop()`
 
-```solidity
-privateNotes.pop()
-```
-
-This is one method of deleting from an array. Go to https://solidity-by-example.org/array/ to see other methods of deleting an element from an array. Our function also update the notes stored in storage with the newly updated note, emit the `DeleteNote()` event, and then return true. If no note was deleted, the function returns false.
+This is one method of deleting from an array. Go to https://solidity-by-example.org/array/ to see other methods of deleting an element from an array. Our function also updates the notes stored in storage with the newly updated note, emits the `DeleteNote()` event, and then returns `true`. If no note was deleted, the function returns `false`.
 
 The last function in our contract file is `getNotes()`.
 
 ```solidity
-  // get note belonging to message sender
+  // get note belonging to the message sender
     function getNotes() external view returns (Note[] memory) {
         Note[] memory _notes = notes[msg.sender];
         return _notes;
     }
 ```
-It `external` and `view` modifiers means it can only be called from outside the contract. It also returns an array of `Note` data. The function first copy the notes it needs to return into a memory location variable called `_notes`, it then returns this note from memory location because it costs less gas to return variable from memory than storage.
+Its `external` and `view` modifiers mean it can only be called from outside the contract. It also returns an array of `Note` data. The function first copy the notes it needs to return into a memory location variable called `_notes`, it then returns this note from the memory location because it costs less gas to return a variable from memory than storage.
 
 ### `src/contracts/todo.abi.json`
-This file contains the ABI of our todo contract. ABI stands for Application Binary Interface. You will need the ABI of a contract in order to interract with the deployed instance of that contract. The ABI of our todo contract can be generated from Remix IDE. We will discuss how to do this later in the tutorial when deploying the contract using Remix IDE. For now, just know that the ABI is not constant. Anytime we make changes to our contract code, we are expected to generate antther ABI or else the previous one will not work with the updated contract.
+This file contains the ABI of our to-do contract. ABI stands for Application Binary Interface. You will need the ABI of a contract to interact with the deployed instance of that contract. The ABI of our todo contract can be generated from Remix IDE. We will discuss how to do this later in the tutorial when deploying the contract using Remix IDE. For now, just know that the ABI is not constant. Anytime we make changes to our contract code, we are expected to generate another ABI, or else the previous one will not work with the updated contract.
 
 ### `src/App.js`
-`App.js` is the file that hpuses the main code for our frontend. It is a Javascript file that contains a React component. Below is the code for our `App.js`:
+`App.js` is the file that uses the main code for our front end. It is a Javascript file that contains a React component. Below is the code for our `App.js`:
 
 ```javascript
 import React from 'react'
@@ -517,7 +514,7 @@ const App = () => {
 export default App
 ```
 
-Oops! That was pretty long :smiley:. Please don't panic, there is no much to it. It's pretty straightforward. Let's dive into the code.
+Oops! That was pretty long :smiley:. Please don't panic, there is not much to it. It's pretty straightforward. Let's dive into the code.
 
 ```javascript
 import React from 'react'
@@ -531,11 +528,11 @@ const ERC20_DECIMALS = 18
 const contractAddress = "0x8216E0B0B9b7ddcD36e22A23e3B33fE1b9409685";
 ```
 
-We started by importing `React` from `react` package we installed earlier (remember our `package.json`). We then imported `App.scss` file, this file contains all the styling that will be applied to our frontend. We used SCSS to make the styling easier and shorter to implement. Alternatively, you can use CSS for your implemetation, depending which one you are comfortable with.
+We started by importing `React` from `react` package we installed earlier (remember our `package.json`). We then imported `App.scss` file, this file contains all the styling that will be applied to our frontend. We used SCSS to make the styling easier and shorter to implement. Alternatively, you can use CSS for your implementation, depending on which one you are comfortable with.
 
-We also imported `newKitFromWeb3` from `@celo/contractkit`. This package allows us to communicate and carry out transactions on the Celo blockchain. Next, we imported `BigNumber` from `bignumber.js` to handle large numbers we will be using. We also imported `Web3` from `web3` package. `Web3` package creates a web3 instance using the Celo extension wallet installed in our browsers. Lastly, we imported the ABI for our Todo contract.
+We also imported `newKitFromWeb3` from `@celo/contractkit`. This package allows us to communicate and carry out transactions on the Celo blockchain. Next, we imported `BigNumber` from `bignumber.js` to handle the large numbers we will be using. We also imported `Web3` from the `web3` package. The `Web3` package creates a web3 instance using the Celo extension wallet installed in our browsers. Lastly, we imported the ABI for our Todo contract.
 
-In the last two lines, we created two variables, `ERC20_DECIMALS` and `contractAddrss`. `ERC20_DECIMALS` stores the decimal places of the Celo blockchain native currency (CELO). `contractAddress `stores the address our Todo contract was deployed to.
+In the last two lines, we created two variables, `ERC20_DECIMALS` and `contractAddrss`. `ERC20_DECIMALS` stores the decimal places of the Celo blockchain native currency (CELO). `contractAddress `stores the address to which our Todo contract was deployed to.
 
 Next, we created our App component and defined all the state variables we want to keep track of using `React.usestate()`. 
 
@@ -543,7 +540,7 @@ Inside the body of our app component, we defined some functions which are explai
 
 - `accountBalance()` - Fetches the user's wallet balance and stores it in the `account` state
 - `connectwallet()` - Connects the user's Celo Extension Wallet to the dapp
-- `fetchNotes()` - Retrieves all notes created by current user from the blockchain
+- `fetchNotes()` - Retrieves all notes created by the current user from the blockchain
 - `add()` - Add a new note to the smart contract
 - `complete()` - Mark a note as completed
 - `deleteNote()` - Delete a note from the contract
@@ -553,32 +550,32 @@ Inside the body of our app component, we defined some functions which are explai
 The last part of our app component contains the HTML that will be rendered when the user visits our app. The styling applied to the HTML is gotten from `App.scss` file we imported from above. The HTML part is straightforward to go through and we won't go through it in this tutorial because it is not in the scope of the tutorial.
 
 ## App Deployment using Remix IDE
-You remember the `Todo` contract we wrote in `src/contracts/Todo.sol`? We will be deploying it to the Celo Alfajores testnet in order to get an address that we can use to interact with the contract. (You need ABI and address to interact with a contract. We already have the ABI, what is left is the contract address).
+Do you remember the `Todo` contract we wrote in `src/contracts/Todo.sol`? We will be deploying it to the Celo Alfajores testnet to get an address that we can use to interact with the contract. (You need ABI and address to interact with a contract. We already have the ABI, what is left is the contract address).
 
-Follow the steps below to deploy the contract to Celo testnet and generate a contract address.
+Follow the steps below to deploy the contract to the Celo testnet and generate a contract address.
 
 1. Open Remix IDE from your browser using https://remix.ethereum.org
 2. Create a new file inside the contracts folder and name the file `Todo.sol`.
 <img width="370" alt="image" src="https://user-images.githubusercontent.com/64266194/222228319-0bccd42d-10c5-465e-890e-355e49acc346.png">
 
-3. Search for Celo extension in the extension section and click on "**Activate**" to activate the extension. 
+3. Search for the Celo extension in the extension section and click on "**Activate**" to activate the extension. 
 <img width="370" alt="image" src="https://user-images.githubusercontent.com/64266194/222229349-f6f14ea0-8ce5-47e7-b1fa-1d7708f75829.png">
 
 4. After activating the extension, connect your wallet to the extension
-5. Click on the "Deploy" button to deploy already compiled contract to the Celo blockchain. Your Celo extension wallet will pop up asking you to sign the transaction.
+5. Click on the "Deploy" button to deploy the already compiled contract to the Celo blockchain. Your Celo extension wallet will pop up asking you to sign the transaction.
 6. Sign the transaction and wait for it to complete.
 
 After the transaction is successful, the contract address will appear next to the "Deploy" button. Copy the address and paste it as the value of the variable `contractAddress` inside our `src/App.js` file. 
 
 ## Conclusion
-After completing all the steps above, you will a have a fully functional todo notes app. We didn't cover every aspect of the tutorial because we are conscious of the tutorial length. But we covered the main parts that might be hard to understand. 
+After completing all the steps above, you will have a fully functional todo notes app. We didn't cover every aspect of the tutorial because we are conscious of the tutorial length. But we covered the main parts that might be hard to understand. 
 
 With your newly equipped knowledge, I hope to see the amazing things you will build and write about.
 
 See you in the rabbit hole!
 
 ## Author
-Peter Ayuba is a software developer with love and passion for contribution to the open source world. He is currently juggling with Solidity and Web3 world. He loves to listen to heavy metals music in his free time.
+Peter Ayuba is a software developer with a love and passion for contributing to the open source world. He is currently juggling Solidity and Web3 world. He loves to listen to heavy metal music in his free time.
 
 ## References 
 - [Solidity documentation](https://docs.soliditylang.org)
