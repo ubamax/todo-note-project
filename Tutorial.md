@@ -2,7 +2,7 @@
 
 ---
 title: Build a note taking app with solidity
-description: Build a CRUD application on the Celo blockchain using Solidity
+description: Build a CRUD application on the Celo blockchain with Solidity
 authors:
 - name: Peter Ayuba
   title: Software Developer, 
@@ -10,7 +10,7 @@ authors:
   image_url: https://github.com/ubamax.png
 tags: [solidity, react, celo, todolist, beginner]
 hide_table_of_contents: true
-slug: /tutorials/build-a-note-taking-app-with-solidity
+slug: /build-a-note-taking-app-with-solidity
 ---
 _Estimated reading time: **18 minutes**_
 
@@ -65,7 +65,7 @@ To get started with a headstart in this tutorial, clone the project repository b
 ```bash
 git clone https://github.com/ubamax/todo-note-project.git
 ```
-Make sure you have git installed before running the above command otherwise you might get an error message asking you to install git.
+Make sure you have Git installed before running the above command otherwise you might get an error message asking you to install Git.
 
 Navigate into the repository/folder you just cloned and run the command from your command line:
 
@@ -131,8 +131,8 @@ This file contains all the packages that are needed for our note app to function
 
 - `@celo/contractkit` - This is a library that help developers and validators to interact with the Celo blockchain and is well suited to developers looking for an easy way to integrate Celo Smart Contracts within their applications. It includes common functionality to make it easier to get started building dapps on Celo.
 - `bignumber.js` - A JavaScript library for arbitrary-precision arithmetic.
-- `sass` - A node implementation of the SASS engine. SASS (Syntactically Awasome Style Sheet) is a CSS extension that allows writing CSS more faster and easier.
-- `web3` - A Javascript library for interracting with the Ethereum blockchain. It can also be used to interract with the celo blockchain as well.
+- `sass` - A NodeJS implementation of the SASS engine. SASS (Syntactically Awasome Style Sheet) is a CSS extension that allows writing CSS more faster and easier.
+- `web3` - A Javascript library for interacting with the Ethereum blockchain. It can also be used to interact with the Celo blockchain as well.
 
 ### `src/contracts/Todo.sol`
 This file contains our Solidity smart contract. Below is the code contained in the file:
