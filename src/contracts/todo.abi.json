@@ -88,13 +88,7 @@
 			}
 		],
 		"name": "deleteNote",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
+		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
@@ -104,11 +98,6 @@
 		"outputs": [
 			{
 				"components": [
-					{
-						"internalType": "uint256",
-						"name": "noteId",
-						"type": "uint256"
-					},
 					{
 						"internalType": "uint256",
 						"name": "lastModified",
@@ -152,13 +141,7 @@
 			}
 		],
 		"name": "setCompleted",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
+		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	}
