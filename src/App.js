@@ -71,9 +71,9 @@ const App = () => {
     try {
       const rawNotes = await todoContract.methods.getNotes().call();
       const cleanNotes = await Promise.all(
-        rawNotes.map(note => {
+        rawNotes.map((note, index) => {
           return {
-            id: note.noteId,
+            id: index,
             title: note.title,
             note: note.note,
             completed: note.completed,
