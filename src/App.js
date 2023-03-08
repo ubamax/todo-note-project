@@ -6,7 +6,7 @@ import Web3 from 'web3';
 import abi from "./contracts/todo.abi.json"
 
 const ERC20_DECIMALS = 18
-const contractAddress = "0x8216E0B0B9b7ddcD36e22A23e3B33fE1b9409685";
+const contractAddress = "0x13B229De9301D61C2a84C420C7963c04c47A5449";
 
 const App = () => {
   const [address, setAddress] = React.useState()
@@ -71,9 +71,9 @@ const App = () => {
     try {
       const rawNotes = await todoContract.methods.getNotes().call();
       const cleanNotes = await Promise.all(
-        rawNotes.map(note => {
+        rawNotes.map((note, index) => {
           return {
-            id: note.noteId,
+            id: index,
             title: note.title,
             note: note.note,
             completed: note.completed,
