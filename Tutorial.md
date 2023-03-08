@@ -318,7 +318,7 @@ import Web3 from 'web3';
 import abi from "./contracts/todo.abi.json"
 
 const ERC20_DECIMALS = 18
-const contractAddress = "0x8216E0B0B9b7ddcD36e22A23e3B33fE1b9409685";
+const contractAddress = "0x13B229De9301D61C2a84C420C7963c04c47A5449";
 
 const App = () => {
   const [address, setAddress] = React.useState()
@@ -492,7 +492,7 @@ import Web3 from 'web3';
 import abi from "./contracts/todo.abi.json"
 
 const ERC20_DECIMALS = 18
-const contractAddress = "0x8216E0B0B9b7ddcD36e22A23e3B33fE1b9409685";
+const contractAddress = "0x13B229De9301D61C2a84C420C7963c04c47A5449";
 ```
 
 We started by importing `React` from the `react` package we installed earlier (remember our `package.json`). We then imported the `App.scss` file, this file contains all the styling that will be applied to our front end. We used SCSS to make the styling easier and shorter to implement. Alternatively, you can use CSS for your implementation, depending on which one you are comfortable with.
