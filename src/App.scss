@@ -123,6 +123,23 @@
       hr {
         width: 95%;
       }
+
+      .axis {
+        border-radius: 5px;
+        height: 20px;
+        width: 10px;
+        color: rgb(136, 85, 17);
+        opacity: .8;
+        z-index: inherit;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: 'Courier New', Courier, monospace;
+        margin-top: 10px;
+        margin-left: 15px;
+        margin-right: 22px;
+        mask-border: 22rem;
+        cursor: pointer;
+            }
     }
   }
 }
