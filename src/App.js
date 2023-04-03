@@ -104,6 +104,7 @@ const App = () => {
     }
   }
 
+  // this function marks a note as completed
   const complete = async (noteId) => {
     try {
       await todoContract.methods.setCompleted(noteId).send({ from: kit.defaultAccount })
@@ -112,6 +113,7 @@ const App = () => {
     }
   }
 
+  // This function delets note from the smart contract
   const deleteNote = async (noteId) => {
     try {
       await todoContract.methods.deleteNote(noteId).send({ from: kit.defaultAccount })
