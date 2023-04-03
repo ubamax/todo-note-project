@@ -17,7 +17,7 @@ const App = () => {
   const [kit, setKit] = React.useState();
   const [todoContract, setTodoContract] = React.useState()
 
-
+// This function gets the accoubt balance of the user
   const accountBalance = async () => {
     try {
       const balance = await kit.getTotalBalance(String(address));
@@ -31,6 +31,7 @@ const App = () => {
     }
   }
 
+  // This function is used to conenct wallet to the dapp
   const connectWallet = async () => {
     if (window.celo) {
       try {
@@ -67,6 +68,7 @@ const App = () => {
     }
   }, [todoContract])
 
+  // This function is used to fetch all the notes created by the user
   const fetchNotes = async () => {
     try {
       const rawNotes = await todoContract.methods.getNotes().call();
@@ -89,6 +91,7 @@ const App = () => {
     }
   }
 
+  // This function is used to ada a new note to the app
   const add = async () => {
     try {
       await todoContract.methods.addNote(
