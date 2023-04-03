@@ -31,7 +31,7 @@ const App = () => {
     }
   }
 
-  // This function is used to conenct wallet to the dapp
+  // This function is used to connect wallet to the dapp
   const connectWallet = async () => {
     if (window.celo) {
       try {
@@ -91,7 +91,7 @@ const App = () => {
     }
   }
 
-  // This function is used to ada a new note to the app
+  // This function is used to add a new note to the app
   const add = async () => {
     try {
       await todoContract.methods.addNote(
@@ -104,7 +104,7 @@ const App = () => {
     }
   }
 
-  // this function marks a note as completed
+  // This function marks a note as completed
   const complete = async (noteId) => {
     try {
       await todoContract.methods.setCompleted(noteId).send({ from: kit.defaultAccount })
@@ -113,7 +113,7 @@ const App = () => {
     }
   }
 
-  // This function delets note from the smart contract
+  // This function deletes note from the smart contract
   const deleteNote = async (noteId) => {
     try {
       await todoContract.methods.deleteNote(noteId).send({ from: kit.defaultAccount })
