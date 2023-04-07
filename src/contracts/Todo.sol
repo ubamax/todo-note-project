@@ -3,7 +3,6 @@
 pragma solidity >=0.8.0;
 
 contract Todo {
-
     event CreateNote(address indexed author, uint256 noteId);
     event UpdateNote(address indexed author, uint256 noteId);
     event DeleteNote(address indexed author, uint256 noteId);
@@ -17,7 +16,9 @@ contract Todo {
         string tag;
     }
 
+    // keep track of fall the notes
     mapping(address => Note[]) notes;
+    // generate new id for each note
     uint256 idController;
 
     // add new note
