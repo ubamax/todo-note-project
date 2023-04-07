@@ -3,10 +3,12 @@
 pragma solidity >=0.8.0;
 
 contract Todo {
+    // Events to be emitted in respose to actions in the dapp and smart contract
     event CreateNote(address indexed author, uint256 noteId);
     event UpdateNote(address indexed author, uint256 noteId);
     event DeleteNote(address indexed author, uint256 noteId);
 
+// note type structure
     struct Note {
         uint256 noteId;
         uint256 lastModified;
